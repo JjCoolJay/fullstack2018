@@ -1,0 +1,21 @@
+https://www.websequencediagrams.com/
+
+kayttaja->selain:
+note left of selain
+käyttäjä lisää uuden muistiinpanon
+end note
+
+note left of selain
+selaimessa suoritettava javascript-koodi lähettää muistiinpanon
+palvelimella ja lisää uudelle muistiinpanolle HTML-elementit
+end note
+
+selain->palvelin: POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+note left of palvelin
+lisättävä muistiinpano ja aikaleima on payloadissa JSON-muodossa
+end note 
+
+palvelin->selain: status 201, palvelimelle on luotu uusi muistiinpano
+note left of selain
+selain renderöi javascriptin muuttaman HTML-koodin
+end note

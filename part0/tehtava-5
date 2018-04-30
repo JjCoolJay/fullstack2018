@@ -1,0 +1,31 @@
+https://www.websequencediagrams.com/
+
+kayttaja->selain:
+note left of selain
+käyttäjä syöttää osoiteriville 
+https://fullstack-exampleapp.herokuapp.com/spa
+end note
+
+selain->palvelin: GET https://fullstack-exampleapp.herokuapp.com/spa
+palvelin->selain: status 200, ladataan sivun osittainen HTML-koodi
+note left of selain
+olemassa olevien muistiinpanojen HTML-koodi
+generoidaan selaimessa
+end note
+
+selain->palvelin: GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin->selain: status 200, tyylitiedoston lataus (main.css)
+
+selain->palvelin: GET https://fullstack-exampleapp.herokuapp.com/spa.js
+palvelin->selain: status 200, javascript-koodin lautaus (spa.js)
+note left of selain
+selain suorittaa javascriptin, joka hakee palvelimelta
+muistiinpanot ja lisää niille HTML-elementit
+end note over 
+
+selain->palvelin: GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin->selain: status 200, muistiinpanojen raakadatan lataus (data.json)
+note left of selain
+  selain renderöi palvelimelta saadun ja javascriptin 
+  tekemän HTML-koodin
+end note
